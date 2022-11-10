@@ -1,0 +1,23 @@
+IF je souhaite déposer un ficher IN G01_01_Event_Modeling:
+Dépot_Nomenclature =  G01_01_[Titre_Numéro_de_Version] (ex: V01)
+return = good Nomenclature 
+
+
+IF je souhaite déposer un ficher IN G01_02_MVP:
+Dépot_Nomenclature =  G01_02_[Titre_Numéro_de_Version] (ex: V01)
+return = good Nomenclature 
+
+
+IF je souhaite déposer un ficher IN G01_03_US:
+Dépot_Nomenclature =  G01_03_[Titre_Numéro_de_Version] (ex: V01)
+return = good Nomenclature 
+
+
+IF je souhaite déposer un ficher IN G01_04_Cas_Utilisateur:
+Dépot_Nomenclature =  G01_04_[Titre_Numéro_de_Version] (ex: V01)
+return = good Nomenclature 
+
+
+IF je souhaite déposer un ficher IN G01_05_Stratégie_Test:
+Dépot_Nomenclature =  G01_05_[Titre_Numéro_de_Version] (ex: V01)
+return = good Nomenclature
