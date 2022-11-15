@@ -11,14 +11,20 @@ def index(request):
     error = False
     if data:
         if 'uname' in data:   
-            #code seb
-            emp = Employee.objects.get(name=request.POST['uname'])
-            if emp.password == request.POST['psw']:
-                request.session['user_id'] = emp.id
-                obj = Message.objects.filter(receiver=emp.service)
-                return render(request,"message/index.html", context={"Messages": obj, "emp":emp})
+            try:
+                emp = Employee.objects.get(name=request.POST['uname'])
+                if emp.password == request.POST['psw']:
+                    request.session['user_id'] = emp.id
+                    obj = Message.objects.filter(receiver=emp.service)
+                    return render(request,"message/index.html", context={"Messages": obj, "emp":emp})
+                else:
+                    return HttpResponse("Mot de passe incorrecte.") 
+            except:
+                return HttpResponse("Cet utilisateur  n'existe pas.")
+        else:
+                return HttpResponse("Veuillez saisir l'utilisateur.")
     else:
-        return render(request, "message/page2.html")  #HttpResponse("Vous êtes connecté.")
+        return render(request, "index.html")  
 
     
 
@@ -73,6 +79,7 @@ def saveRequest(request):
         else:
             refPhone = ""
 
+        sendBy = "RH"
         if not error:
             newMessage = Message(typeDemande = typeDemande,  ordinateur = refOrdi,   telephone = refPhone,  acces = refAcces,  description = description, employe = employee, sendBy = sendBy, receiver = receiver)
             newMessage.save()
